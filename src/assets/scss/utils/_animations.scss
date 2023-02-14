@@ -1,0 +1,55 @@
+@keyframes grain {
+    0% {
+        transform: translate(10%, -15%);
+    }
+    10% {
+        transform: translate(-10%, -15%);
+    }
+    20% {
+        transform: translate(10%, -5%);
+    }
+    30% {
+        transform: translate(-10%, -5%);
+    }
+    40% {
+        transform: translate(10%, 5%);
+    }
+    50% {
+        transform: translate(-10%, 5%);
+    }
+    60% {
+        transform: translate(10%, 15%);
+    }
+    70% {
+        transform: translate(-10%, 15%);
+    }
+    80% {
+        transform: translate(10%, 5%);
+    }
+    90% {
+        transform: translate(-10%, 5%);
+    }
+    100% {
+        transform: translate(10%, -5%);
+    }
+}
+
+
+@keyframes scrollTxt {
+    0%{
+        transform: translate(0, 0);
+    }
+    100% {
+    transform: translate(-1500%, 0);
+    }
+}
+
+
+@keyframes infiniteArrowX {
+    0%{
+        transform: translateX(-30%);
+    }
+    100% {
+        transform: translateX(30%);
+    }
+}

@@ -1,0 +1,155 @@
+@font-face {
+    font-family: 'Archivo';
+    src: url(../font/Archivo-Light.woff);
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url(../font/Archivo-Regular.woff);
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    src: url(../font/Archivo-Medium.woff);
+    font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url(../font/Archivo-Black.woff);
+  font-weight: 800;
+}
+
+////////////////////////////// HOME ////////////////////////////
+html{
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    margin-top: 0;
+}
+
+
+header{
+    background-color: white;
+    height: 100vh;
+    width: 6vw;
+    padding: 0 16px;
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    transition: opacity 0.2s ease-out;
+    opacity: 1;
+    visibility: visible;
+    background:#312F2C;
+
+    &.hidden {
+        opacity: 0;
+    }
+    .nav{
+        a{
+            color: black;
+        }
+        a:hover{
+            color: rgb(126, 123, 123);
+        }
+    }
+    .nav{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        opacity: 1;
+        gap: 32px;
+        box-shadow: rgba(0, 0, 0, 0.25);
+        padding: 64px 0;
+        ul{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+            gap: 64px;
+            padding: 0 8px;
+            img{
+              width: 50px;
+              height: 50px;
+            }
+            li{
+              list-style-type: none;
+              writing-mode: vertical-lr;
+              display: inline-block;
+              transform: scale(-1);
+              a{
+                  text-decoration: none;
+                  color: black;
+                  font-family: 'Archivo';
+                  font-style: normal;
+                  font-weight: 300;
+                  color: rgba(255, 255, 255, 0.7);
+                  font-size: 20px;
+                  transition: color 200ms ease-in;
+
+              }
+              a:hover{
+                  color: black;
+              }
+          }
+        }
+    }
+}
+
+// .fade-leave-active{
+//     .text-blur-out {
+//         -webkit-animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//                 animation: text-blur-out 1.2s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+//     }
+// }
+// .fade-enter-active{
+//   -webkit-animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+//   animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+// }
+
+
+// @-webkit-keyframes slide-in-blurred-top {
+//   0% {
+//     -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+//             transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+//     -webkit-transform-origin: 50% 0%;
+//             transform-origin: 50% 0%;
+//     -webkit-filter: blur(40px);
+//             filter: blur(40px);
+//     opacity: 0;
+//   }
+//   100% {
+//     -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+//             transform: translateY(0) scaleY(1) scaleX(1);
+//     -webkit-transform-origin: 50% 50%;
+//             transform-origin: 50% 50%;
+//     -webkit-filter: blur(0);
+//             filter: blur(0);
+//     opacity: 1;
+//   }
+// }
+// @keyframes slide-in-blurred-top {
+//   0% {
+//     -webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+//             transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+//     -webkit-transform-origin: 50% 0%;
+//             transform-origin: 50% 0%;
+//     -webkit-filter: blur(40px);
+//             filter: blur(40px);
+//     opacity: 0;
+//   }
+//   100% {
+//     -webkit-transform: translateY(0) scaleY(1) scaleX(1);
+//             transform: translateY(0) scaleY(1) scaleX(1);
+//     -webkit-transform-origin: 50% 50%;
+//             transform-origin: 50% 50%;
+//     -webkit-filter: blur(0);
+//             filter: blur(0);
+//     opacity: 1;
+//   }
+// }

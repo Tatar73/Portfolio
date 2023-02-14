@@ -1,0 +1,13 @@
+.container-real{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+        text-align: center;
+        font-size: 96px;
+        font-family: 'Archivo';
+        font-weight: 800;
+        color: darkgrey;
+    }
+}
