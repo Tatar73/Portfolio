@@ -12,7 +12,13 @@
   <Cursor />
   <router-view/>
   <footer class="item" @mouseenter="handleItemEnter">
-      <p>Killian</p>      
+    <ul>
+      <li><a href="">LinkedIn</a></li>
+      <li><a href="">Github</a></li>
+      <li><a href="">Email</a></li>
+      <li><a href="">Tel</a></li>
+    </ul>
+      <p>© 2022 - Killian  El Attar</p>      
   </footer>
 </template>
 

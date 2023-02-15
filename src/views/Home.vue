@@ -2,8 +2,15 @@
 <template>
     <div class="container-index">
         <section class="section1" id="section1">
-            <h2>KILLIAN<br/>EL ATTAR</h2>
-            <p>DÉVELOPPEUR WEB</p>
+            <div class="Titles">
+                <div class="right">
+                    <h2>KILLIAN<br/>EL ATTAR</h2>
+                    <p>DÉVELOPPEUR WEB</p>
+                </div>
+                <div class="left">
+                    <Time></Time>
+                </div>
+            </div>
             <div class="realisations">
                 <div class="realisation">
                     <img src="../assets/img/real/superHero.png" alt="">
@@ -86,9 +93,16 @@
                         de sport et en faisant du VTT</p>
                     <p>Aujourd'hui, je suis à la recherche d'un stage à effectuer du 02 mai au 27 juin 2023 dans le monde de
                         l'audiovisuel.</p>
-                        <ClassicButton :button-styles="{ background: 'transparent', color: 'white',   border: '2px solid #ffffff' }" redirect-url="#section3"> 
-                            Tout mes projets
-                        </ClassicButton>
+                    <a href="#section3"><ClassicButton
+                        destination=""
+                        buttonText="TEST"
+                        backgroundColor="transparent"
+                        textColor="#ffffff"
+                        hoverColor="#ffffff"
+                        hoverTxtColor="#000000"
+                        borderColor="3px solid #ffffff"
+                        >Découvrir les réalisations</ClassicButton></a>
+
                 </div>
                 <div class="right">
                     <div class="img_top">
@@ -103,34 +117,47 @@
 
         </section>
         <section class="section3" id="section3">
-            <h3>Mes réalisations</h3>
+            <h3>MES RÉALISATIONS</h3>
             <div class="real">
-                <div class="card">
-                    <img @mouseenter="hoverDiv1" @mouseleave="removeClass" :class="{ active: isDiv1Hovered }" src="../assets/img/card1.png"
+                <div class="card" @mouseenter="hoverDiv1" @mouseleave="removeClass" :class="{ card1: isDiv1Hovered }">
+                    <img src="../assets/img/card1.png"
                         alt="illustration Développement web">
+                    <img src="../assets/img/decouvrir.svg"
+                    alt="Découvrir">
                     <div class="info">
-                        <p>Développement web</p>
+                        <p>DEV WEB</p>
                     </div>
+
                 </div>
-                <div class="card">
-                    <img @mouseenter="hoverDiv2" @mouseleave="removeClass" :class="{ active: isDiv2Hovered }" src="../assets/img/card2.png"
+                <div class="card" @mouseenter="hoverDiv2" @mouseleave="removeClass" :class="{ card2: isDiv2Hovered }">
+                    <img src="../assets/img/card2.png"
                         alt="illustration Audiovisuel">
+                    <img src="../assets/img/decouvrir.svg"
+                    alt="Découvrir">
                     <div class="info">
-                        <p>Audiovisuel</p>
+                        <p>AUDIOVISUEL</p>
                     </div>
                 </div>
-                <div class="card">
-                    <img @mouseenter="hoverDiv3" @mouseleave="removeClass" :class="{ active: isDiv3Hovered }" src="../assets/img/card3.png"
+                <div class="card" @mouseenter="hoverDiv3" @mouseleave="removeClass" :class="{ card3: isDiv3Hovered }">
+                    <img src="../assets/img/card3.png"
                         alt="illustration Photographie">
+                    <img src="../assets/img/decouvrir.svg"
+                    alt="Découvrir">
                     <div class="info">
-                        <p>Photographie</p>
+                        <p>PHOTOS</p>
                     </div>
                 </div>
             </div>
             <div class="real-button">
-                <ClassicButton :button-styles="{ background: 'transparent', color: '#000000' } " redirect-url="/realisations">
-                Tout mes projets
-            </ClassicButton>
+                <ClassicButton
+                destination="/realisations"
+                buttonText="TEST"
+                backgroundColor="transparent"
+                textColor="#000000"
+                hoverColor="#000000"
+                hoverTxtColor="#ffffff"
+                borderColor="3px solid #000000"
+                >Tout mes projets</ClassicButton>
             </div>      
 
         </section>
@@ -140,12 +167,13 @@
 
 <script>
 import ClassicButton from "../components/ClassicButton.vue";
-
+import Time from "../components/Time.vue";
 
 export default {
 ////////BUTTON////////////
   components: {
     ClassicButton,
+    Time,
   },
 ////////HOVER////////////
   data() {
@@ -172,4 +200,7 @@ export default {
     },
   },
 };
+
 </script>
+
+

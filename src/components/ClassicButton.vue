@@ -1,22 +1,66 @@
 <template>
-   <button @click="redirectToUrl" :style="buttonStyles"><slot></slot></button>
+   <button 
+    :style="buttonStyle"
+    @mouseover="hover = true" 
+    @mouseout="hover = false"
+    @click="redirectToPage">
+    <slot></slot>
+    </button>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      hover: false,
+    };
+  },
   props: {
-    buttonStyles: {
-      type: Object,
-      default: () => ({}),
-    },
-    redirectUrl: {
+    destination: {
       type: String,
       required: true,
     },
+    backgroundColor: {
+      type: String,
+      default: "transparent", // Couleur de fond par défaut
+    },
+    textColor: {
+      type: String,
+      default: "#000000", // Couleur de texte par défaut
+    },
+    hoverColor: {
+      type: String,
+      default: "#ffffff", // Couleur de survol par défaut
+    },
+    hoverTxtColor: {
+      type: String,
+      default: "#ffffff", // Couleur de survol par défaut
+    },
+    borderColor: {
+      type: String,
+      default: "#3E8E41", // Couleur de survol par défaut
+    },
+  },
+  computed: {
+    buttonStyle() {
+      return {
+        backgroundColor: this.hover ? this.hoverColor : this.backgroundColor,
+        color: this.hover ? this.hoverTxtColor : this.textColor,
+        border: this.borderColor,
+        textDecoration: 'none',
+        borderRadius: '49px',
+        padding: '12px 32px',
+        fontFamily: 'Archivo',
+        fontSize: '16px',
+        fontWeight: '800',
+        textAlign: 'center',
+        transition: 'all 0.5s ease'
+      };
+    },
   },
   methods: {
-    redirectToUrl() {
-      window.location.href = this.redirectUrl;
+    redirectToPage() {
+      this.$router.push(this.destination);
     },
   },
 };
@@ -24,21 +68,5 @@ export default {
 
 
 <style>
-
-button{
-  border: none;
-  background: none;
-  text-decoration: none;
-  color: black;
-  border: 3px solid #000000;
-  border-radius: 49px;
-  padding: 16px 16px;
-  font-family: 'Archivo';
-  font-size: 16px;
-  font-weight: 800;
-  text-align: center;
-  width: 250px;
-  transition: background-color 0.2s ease;
-}
 
 </style>
