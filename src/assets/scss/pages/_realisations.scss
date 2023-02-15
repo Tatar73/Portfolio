@@ -1,13 +1,24 @@
 .container-real{
-    height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    h1{
-        text-align: center;
-        font-size: 96px;
-        font-family: 'Archivo';
-        font-weight: 800;
-        color: darkgrey;
+    flex-direction: column;
+    padding: 6.25rem 10rem;
+    &::after{
+        background-image: url("../img/grid.svg");
+        background-repeat: repeat;
+        background-size: 100%;
+    }
+
+    .filtres{
+        display: flex;
+        gap: 16px;
+        margin-bottom: 6.25rem;
+    }
+    .grid{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        .realisation{
+            padding: 16px;
+        }
     }
 }

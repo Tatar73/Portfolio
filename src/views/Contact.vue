@@ -1,72 +1,79 @@
 <template>
     <div class="container-contact">
     <h2>Envie de collaborer ensemble ?</h2>
-      <form @submit.prevent="submitForm">
+    <form @submit.prevent="sendEmail">
         <div class="flex">
             <div>
-                <label for="name">Nom</label>
-                <input type="text" id="name" v-model="name" required>
+                <label>Nom</label>
+                <input type="text" name="name" v-model="name" required>
             </div>
             <div>
-                <label for="email">Email</label>
-                <input type="email" id="email" v-model="email" required>
+                <label>Email</label>
+                <input name="email" v-model="email" required>
             </div>
         </div>
         <div class="message">
-          <label for="message">Message</label>
-          <textarea id="message" v-model="message" required></textarea>
+          <label>Message</label>
+          <textarea name="message" v-model="message" required></textarea>
         </div>
-        <button type="submit"><ClassicButton
-                destination="/realisations"
-                buttonText="TEST"
-                backgroundColor="transparent"
-                textColor="#000000"
-                hoverColor="#000000"
-                hoverTxtColor="#ffffff"
-                borderColor="3px solid #000000"
-                >Envoyer</ClassicButton></button>
+        <input type="submit" value="Envoyer">
       </form>
       <div v-if="statusMessage">{{ statusMessage }}</div>
     </div>
+    <!-- <div>
+    <custom-alert message="Ceci est une alerte!" type="success" @dismiss="handleDismiss"></custom-alert>
+    </div> -->
   </template>
   
   <script>
   import emailjs from 'emailjs-com';
   import ClassicButton from "../components/ClassicButton.vue";
+//import CustomAlert from '@/utils/CustomAlert.vue';
+
 
   
   export default {
+
+    name: 'ContactUs',
+
     components: {
     ClassicButton,
     },
+
     data() {
-      return {
-        name: '',
-        email: '',
-        message: '',
-        statusMessage: ''
-      };
-    },
-    methods: {
-      submitForm() {
-        const templateParams = {
-          from_name: this.name,
-          from_email: this.email,
-          to_name: 'Destinataire',
-          message_html: this.message
+        return {
+            name: '',
+            email: '',
+            message: '',
+            service_id: 'service_ttb15di',
+            template_id: 'template_r2392th',
+            user_id: 'oicsehqrZ2nTtGtQ7',
         };
-  
-        emailjs.send('service_ttb15di', '<template_r2392th>', templateParams, 'oicsehqrZ2nTtGtQ7')
-          .then(() => {
-            this.statusMessage = 'Votre message a été envoyé avec succès.';
-            this.name = '';
-            this.email = '';
-            this.message = '';
-          }, (error) => {
-            console.error(error);
-            this.statusMessage = 'Une erreur est survenue. Veuillez réessayer.';
-          });
-      }
-    }
-  };
+    },
+
+    methods: {
+        handleDismiss() {
+        console.log('Alerte fermée!');
+        },
+        sendEmail() {
+            let template_params = {
+                reply_to: this.email,
+                from_name: this.name,
+                to_name: 'Killian',
+                message_html: this.message,
+            };
+        emailjs.send(
+        this.service_id,
+        this.template_id,
+        template_params,
+        this.user_id
+      )
+      .then(() => {
+        alert('Email envoyé!');
+      }, (err) => {
+        alert('Une erreur s\'est produite, veuillez réessayer plus tard', err);
+      });
+    },
+  },
+};
   </script>
