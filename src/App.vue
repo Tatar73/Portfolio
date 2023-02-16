@@ -13,7 +13,7 @@
   <router-view/>
   <footer class="item" @mouseenter="handleItemEnter">
     <ul>
-      <li><a href="">LinkedIn</a></li>
+      <li><a href="https://www.linkedin.com/in/killian-el-attar/" target="_blank">LinkedIn</a></li>
       <li><a href="">Github</a></li>
       <li><a href="">Email</a></li>
       <li><a href="">Tel</a></li>
