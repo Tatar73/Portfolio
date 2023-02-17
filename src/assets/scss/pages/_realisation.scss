@@ -59,3 +59,45 @@
         }
     }
 }
+
+
+.container-video{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    margin: auto;
+    h2{
+        margin: 1rem 0;
+        font-family: 'Archivo';
+        font-weight: 800;
+        font-size: 20px;
+        text-align: center;
+        color: #000000;        
+    }
+    p{
+        margin: 1rem 0;
+        font-family: 'Archivo';
+        font-weight: 300;
+        font-size: 20px;
+        line-height: 22px;
+        text-align: center;
+        color: #000000;
+    }
+    img{
+        margin: 1rem 0;
+    }
+    a{  
+        margin: 1rem 0;
+        font-family: 'Archivo';
+        font-style: normal;
+        font-weight: 800;
+        font-size: 12px;
+        line-height: 13px;
+        text-align: center;
+        text-decoration-line: underline;
+        color: #ABA4A4;
+    }
+}

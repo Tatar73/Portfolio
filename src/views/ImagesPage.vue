@@ -8,6 +8,7 @@
             hoverColor="transparent"
             hoverTxtColor="#000000"
             borderColor="3px solid #000000"
+            @click="showImages"
             >Voir tout
             </ClassicButton>
             <ClassicButton
@@ -17,6 +18,7 @@
             hoverColor="#000000"
             hoverTxtColor="#ffffff"
             borderColor="3px solid #000000"
+            @click="showFirstSixImages"
             >Développement web
             </ClassicButton>
             <ClassicButton
@@ -39,8 +41,8 @@
             </ClassicButton>
         </div>
         <div class="grid">
-            <div class="realisation" v-for="(image, index) in images" :key="index" @click="goToImagePage(index)">
-                    <img :src="image.src">
+            <div class="realisation" v-for="(image, index) in images" :key="index" @click="goToImagePage(index)" v-show="showAllImages || (index < 6)">
+                <img :src="image.src" :id="index < 6 ? `image-${index}` : ''">
             </div>
         </div>
     </div>
@@ -56,7 +58,7 @@ import ClassicButton from "../components/ClassicButton.vue";
     data() {
       return {
         images: [
-          { src: 'src/assets/img/real/refuge.png' },
+          { src: 'src/assets/img/real/refuge.png'},
           { src: 'src/assets/img/real/mmietapres.png' },
           { src: 'src/assets/img/real/laboiteameuh.png' },
           { src: 'src/assets/img/real/mmietapresOld.png' },
@@ -64,18 +66,31 @@ import ClassicButton from "../components/ClassicButton.vue";
           { src: 'src/assets/img/real/superHero.png' },
           { src: 'src/assets/img/real/impact.png' },
           { src: 'src/assets/img/real/spark.png' },
-        ]
+        ],
+        showAllImages: true,
       }
     },
     methods: {
-      goToImagePage(index) {
-        this.$router.push({
-          name: 'ImagePage',
-          params: {
-            index: index
-          }
-        })
+    goToImagePage(index) {
+      this.$router.push({
+        name: 'ImagePage',
+        params: {
+          index: index
+        }
+      })
+    },
+    showFirstSixImages() {
+      this.showAllImages = false;
+      for (let i = 0; i < 6; i++) {
+        const image = document.getElementById(`image-${i}`);
+        if (image) {
+          image.style.display = 'block';
+        }
       }
-    }
+    },
+    showImages(){
+        this.showAllImages = true;
+    },
+  }
   }
   </script>
