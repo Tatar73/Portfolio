@@ -1,5 +1,5 @@
 <template>
-    <div class="container-real" >
+     <div class="container-real" >
         <div class="filtres">
             <ClassicButton
             destination=""
@@ -38,42 +38,44 @@
             >Photographie
             </ClassicButton>
         </div>
-        <div class="image-page">
-            <div class="realisation">
-                <img :src="images[index].src">
-                <meme-generator></meme-generator>
+        <div class="grid">
+            <div class="realisation" v-for="(image, index) in images" :key="index" @click="goToImagePage(index)">
+                    <img :src="image.src">
             </div>
         </div>
     </div>
-</template>
-
-<script>
+  </template>
+  
+  <script>
 import ClassicButton from "../components/ClassicButton.vue";
-import MemeGenerator from '../components/MemeGenerator.vue';
 
-
-export default {
+  export default {
     components: {
         ClassicButton,
-        MemeGenerator
     },
-  data() {
-    return {
+    data() {
+      return {
         images: [
-        { src: 'src/assets/img/real/refuge.png' },
-        { src: 'src/assets/img/real/mmietapres.png' },
-        { src: 'src/assets/img/real/laboiteameuh.png' },
-        { src: 'src/assets/img/real/mmietapresOld.png' },
-        { src: 'src/assets/img/real/hekto.png' },
-        { src: 'src/assets/img/real/superHero.png' },
-        { src: 'src/assets/img/real/impact.png' },
-        { src: 'src/assets/img/real/spark.png' },
-      ],
-      index: null
+          { src: 'src/assets/img/real/refuge.png' },
+          { src: 'src/assets/img/real/mmietapres.png' },
+          { src: 'src/assets/img/real/laboiteameuh.png' },
+          { src: 'src/assets/img/real/mmietapresOld.png' },
+          { src: 'src/assets/img/real/hekto.png' },
+          { src: 'src/assets/img/real/superHero.png' },
+          { src: 'src/assets/img/real/impact.png' },
+          { src: 'src/assets/img/real/spark.png' },
+        ]
+      }
+    },
+    methods: {
+      goToImagePage(index) {
+        this.$router.push({
+          name: 'ImagePage',
+          params: {
+            index: index
+          }
+        })
+      }
     }
-  },
-  created() {
-    this.index = this.$route.params.index;
   }
-}
-</script>
+  </script>

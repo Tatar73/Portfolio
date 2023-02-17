@@ -4,7 +4,7 @@
           <ul>
             <router-link :to="{name: 'home'}"><img src="./assets/img/logo_blanc.svg" alt="Logo personnel"></router-link>
             <li><router-link :to="{name: 'home'}">ACCUEIL</router-link></li>
-            <li><router-link :to="{name: 'realisations'}">REALISATIONS</router-link></li>
+            <li><router-link :to="{name: 'ImagesPage'}">REALISATIONS</router-link></li>
             <li><router-link :to="{name: 'contact'}">CONTACT</router-link></li>
           </ul>
       </nav>
